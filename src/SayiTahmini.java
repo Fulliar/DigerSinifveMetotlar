@@ -14,6 +14,7 @@ public class SayiTahmini {
         int right = 0;
         int selected;
         boolean isWin = false;
+        boolean isWrong = false;
         int[] wrong = new int[5];
 
         while(right<5){
@@ -21,6 +22,13 @@ public class SayiTahmini {
             selected = input.nextInt();
             if( selected < 0 || selected > 99){
                 System.out.println("Lütfen 0-100 arasında bir değer giriniz.");
+                if(isWrong){
+                    right++;
+                    System.out.println("Çok fazla hatalı giriş yaptınız. Kalan hak : " + (5-right) );
+                }else {
+                    isWrong = true;
+                    System.out.println("Bir daha hatalı girişinizde hakkınızdan düşülecektir.");
+                }
                 continue;
             }
             if( selected == number){
